@@ -1,0 +1,42 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
+
+mat-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+mat-card-content {
+  display: flex;
+  width: 100%;
+}
+
+textarea {
+  height: 100%;
+  width: 100%;
+  resize: none;
+  border: none;
+  font-family: 'Fira Code';
+  background-color: transparent;
+  padding: 8px;
+  color: #fff;
+}
+
+textarea:focus{
+  outline: none;
+}
+
+textarea::placeholder{
+  color: grey;
+}
+
+.fa-html5 {
+  color: #f76707;
+}
+
+.fa-css3-alt{
+  color: #337CA0;
+}
+
+.fa-js {
+  color:#FFFC31;
+}

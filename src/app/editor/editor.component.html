@@ -1,0 +1,27 @@
+<div
+    fxLayout="column"
+    id="wrapper"
+    fxLayoutGap="8px"
+>
+    <div
+        fxLayout="row"
+        fxFlex="30"
+        id="editors"
+        fxLayoutGap="8px"
+    >
+        <app-editor-window
+            *ngFor="let editor of editors"
+            [title]="editor.title"
+            [type]="editor.type"
+            [placeholder]="editor.placeholder"
+            fxFlex
+        ></app-editor-window>
+    </div>
+    <div
+        fxFlex
+        fxLayout="column"
+        fxLayoutGap="8px"
+    >
+        <app-editor-preview fxFlex></app-editor-preview>
+    </div>
+</div>

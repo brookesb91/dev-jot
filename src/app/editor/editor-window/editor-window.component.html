@@ -1,0 +1,33 @@
+<mat-card fxLayout="column">
+    <mat-card-header>
+        <mat-card-title>
+            <i
+                class="fab"
+                [ngClass]="icons[type]"
+            ></i>
+            {{title}}
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxFlex>
+        <textarea [placeholder]="placeholder"></textarea>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button
+            mat-icon-button
+            color="accent"
+            matTooltip="Copy"
+        >
+            <mat-icon>file_copy</mat-icon>
+        </button>
+        <button
+            mat-icon-button
+            color="warn"
+            matTooltip="Clear"
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-card-actions>
+
+</mat-card>
