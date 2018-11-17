@@ -10,7 +10,14 @@
     </mat-card-header>
 
     <mat-card-content fxFlex>
-        <textarea [placeholder]="placeholder"></textarea>
+        <textarea
+            highlight-js
+            #textarea
+            [placeholder]="placeholder"
+            (change)="emitChange($event)"
+            [(ngModel)]="content"
+            lang="html"
+        ></textarea>
     </mat-card-content>
 
     <mat-card-actions>
@@ -18,6 +25,9 @@
             mat-icon-button
             color="accent"
             matTooltip="Copy"
+            [ngxClipboard]="textarea"
+            (cbOnSuccess)="copySuccess()"
+            color="primary"
         >
             <mat-icon>file_copy</mat-icon>
         </button>
@@ -25,6 +35,7 @@
             mat-icon-button
             color="warn"
             matTooltip="Clear"
+            (click)="clear()"
         >
             <mat-icon>clear</mat-icon>
         </button>

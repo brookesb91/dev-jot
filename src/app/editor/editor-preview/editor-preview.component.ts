@@ -22,10 +22,19 @@ export class EditorPreviewComponent implements OnInit {
     this.readyIframe(this.iframe);
   }
 
-  private readyIframe(iframe: ElementRef): void {
+  render(data: any): void {
+    this.readyIframe(this.iframe, data);
+  }
+
+  private readyIframe(iframe: ElementRef, data: any = null): void {
     this.win = this.iframe.nativeElement.contentWindow;
-    this.doc = this.win.document;
+    this.doc = this.iframe.nativeElement.contentDocument;
     this.doc.open();
+
+    if (data) {
+      this.doc.writeln(data);
+    }
+
     this.doc.close();
   }
 }

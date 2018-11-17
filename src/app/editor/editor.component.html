@@ -5,7 +5,9 @@
 >
     <div
         fxLayout="row"
-        fxFlex="30"
+        fxLayout.lt-md="column"
+        fxFlex.gt-sm="30"
+        fxFlex.lt-md="66"
         id="editors"
         fxLayoutGap="8px"
     >
@@ -14,14 +16,11 @@
             [title]="editor.title"
             [type]="editor.type"
             [placeholder]="editor.placeholder"
+            [before]="editor.before"
+            [after]="editor.after"
             fxFlex
+            (contentChange)="preview()"
         ></app-editor-window>
     </div>
-    <div
-        fxFlex
-        fxLayout="column"
-        fxLayoutGap="8px"
-    >
-        <app-editor-preview fxFlex></app-editor-preview>
-    </div>
+    <app-editor-preview fxFlex></app-editor-preview>
 </div>

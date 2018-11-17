@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { EventEmitter, Component, OnInit, Input, ElementRef, ViewChild, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 
 const ICONS = {
   'html': 'fa-html5',
@@ -13,12 +15,39 @@ const ICONS = {
 })
 export class EditorWindowComponent implements OnInit {
 
+  @ViewChild('textarea') textarea: ElementRef;
+
   @Input() title = 'Editor';
   @Input() type: 'html' | 'js' | 'css' = 'html';
   @Input() placeholder = 'Placeholder Text';
-  icons = ICONS;
+  @Input() before: string;
+  @Input() after: string;
 
-  constructor() { }
+  @Output() contentChange = new EventEmitter<boolean>();
+
+  icons = ICONS;
+  content: string;
+
+  constructor(private toastr: ToastrService) {
+    this.content = '';
+  }
 
   ngOnInit(): void { }
+
+  emitChange(): void {
+    this.contentChange.emit(true);
+  }
+
+  getContent(): string {
+    return `${this.before || ''}${this.content}${this.after || ''}`;
+  }
+
+  clear(): void {
+    this.content = '';
+    this.emitChange();
+  }
+
+  copySuccess(): void {
+    this.toastr.success('Copied To Clipboard');
+  }
 }
