@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorModule } from './editor/editor.module';
+import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { EditorModule } from './editor/editor.module';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     EditorModule,
     AppRoutingModule,
     BrowserAnimationsModule,
