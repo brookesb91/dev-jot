@@ -15,18 +15,29 @@
 
     <mat-drawer-content fxLayout="column">
         <mat-toolbar>
-            <mat-toolbar-row>
-                <button
-                    mat-icon-button
-                    (click)="sidenav.toggle()"
-                >
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <button
+            <mat-toolbar-row fxLayout="row">
+                <div fxFlex>
+                    <button
+                        mat-icon-button
+                        (click)="sidenav.toggle()"
+                    >
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+                <!-- <button
                     mat-icon-button
                     matTooltip="Share"
                 >
                     <mat-icon color="primary">share</mat-icon>
+                </button> -->
+                <button
+                    mat-icon-button
+                    matTooltip="View On GitHub"
+                >
+                    <a
+                        class="fab fa-github"
+                        href="https://github.com/brookesb91/dev-jot"
+                    ></a>
                 </button>
             </mat-toolbar-row>
         </mat-toolbar>

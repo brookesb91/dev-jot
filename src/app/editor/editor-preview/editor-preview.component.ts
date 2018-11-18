@@ -19,22 +19,15 @@ export class EditorPreviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.readyIframe(this.iframe);
   }
 
   render(data: any): void {
-    this.readyIframe(this.iframe, data);
+    this.writeBlob(data);
   }
 
-  private readyIframe(iframe: ElementRef, data: any = null): void {
-    this.win = this.iframe.nativeElement.contentWindow;
-    this.doc = this.iframe.nativeElement.contentDocument;
-    this.doc.open();
-
-    if (data) {
-      this.doc.writeln(data);
-    }
-
-    this.doc.close();
+  private writeBlob(data: any) {
+    const blob = new Blob([data], { type: 'text/html' });
+    const blobUrl = URL.createObjectURL(blob);
+    this.iframe.nativeElement.src = blobUrl;
   }
 }
