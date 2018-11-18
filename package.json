@@ -1,6 +1,6 @@
 {
   "name": "dev-jot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -9,6 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "npm run build"
+  },
+  "engines": {
+    "node": "9.5.0",
+    "npm": "6.0.1"
   },
   "private": true,
   "dependencies": {
